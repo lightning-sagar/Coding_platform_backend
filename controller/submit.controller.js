@@ -9,14 +9,7 @@ const tmpDir = "./tmp";
 
 const submitCode = async (req, res) => {
   try {
-    const { code, language, input, output, timeout, qId } = req.body;
-
-    console.log("[submitCode] Received request with:", {
-      language,
-      qId,
-      timeout,
-      codeSnippet: code?.slice(0, 100) + "...", // show first 100 chars
-    });
+    const { code, language, input, output, timeout, qId,sizeout } = req.body;
 
     if (!code || !language || !qId) {
       console.warn("[submitCode] Missing required fields");
@@ -43,7 +36,7 @@ const submitCode = async (req, res) => {
       input,
       output,
       timeout: timeout || 2.5,
-      sizeout: 64,
+      sizeout: sizeout ||64,
       language: langCode,
     });
 

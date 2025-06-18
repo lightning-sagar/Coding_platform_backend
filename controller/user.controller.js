@@ -52,15 +52,19 @@ const signupController = async(req,res) =>{
 const loginController = async (req, res) => {
     try {
         const { email, password } = req.body;
+
         if (!email || !password) {
             return res.status(400).json({ err: "All fields are required" });
         }
 
-        const user = await User.find({ email });
+        const user = await User.findOne({ email });
         if (!user) {
             return res.status(401).json({ err: "Invalid credentials" });
         }
+        console.log(user.password,password)
+
         const isPasswordCorrect = await bcrypt.compare(password, user.password);
+        console.log("c  ")
         if (!isPasswordCorrect) {
             return res.status(401).json({ err: "Invalid credentials" });
         }
