@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    // Read pairs of integers until end of input
+    while (cin >> a >> b) {
+        cout << a + b << endl;
+    }
+    return 0;
+}
