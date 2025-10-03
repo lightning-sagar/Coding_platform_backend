@@ -79,9 +79,9 @@ const submitCode = async (req, res) => {
       console.log("[submitCode] Updating existing attempt...");
       if (!attempt.quesAttempt.includes(qId)) {
         attempt.quesAttempt.push(qId);
+        attempt.Total_Score = (attempt.Total_Score || 0) + (question.points || 0);
       }
       attempt.attemptques += 1;
-      attempt.Total_Score = (attempt.Total_Score || 0) + (question.points || 0);
     }
     console.log(question.points, " points")
     const contest = await Contest.findById(pid);
