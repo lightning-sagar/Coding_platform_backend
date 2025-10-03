@@ -83,7 +83,7 @@ const submitCode = async (req, res) => {
       attempt.attemptques += 1;
       attempt.score = (attempt.score || 0) + (question.points || 0);
     }
-
+    console.log(question.points, " points")
     const contest = await Contest.findById(pid);
     const startTime = new Date(contest.startTime).getTime();
     const timeTakenNow = Date.now() - startTime;
@@ -91,7 +91,7 @@ const submitCode = async (req, res) => {
 
     await attempt.save();
 
-    console.log("[submitCode] Submission completed successfully");
+    console.log("[submitCode] Submission completed successfully", attempt);
 
     return res.status(200).json({
       message: "All test cases passed!",

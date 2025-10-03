@@ -61,7 +61,8 @@ const createcontest = async (req, res) => {
 
 const allContest = async (req, res) => {
   try {
-    const alllist = await Contest.find();
+    // will make it -1 for latest contest first
+    const alllist = await Contest.find().sort({startTime:-1});
     return res.status(200).json({
       alllist,
     });

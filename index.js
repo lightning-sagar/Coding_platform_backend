@@ -9,7 +9,7 @@ import SubmitRoute from  "./route/submit.route.js"
 
 const app = express();
 app.use(cors({
-  origin: ["https://coding-platform-seven.vercel.app","https://coding-platform-seven.vercel.app/"],
+  origin: ["https://coding-platform-seven.vercel.app","http://localhost:3000"],
   credentials: true, 
 }));
 app.use(express.json());
@@ -22,6 +22,6 @@ app.use('/api/contest',ContestRoute)
 app.use('/api/submit',SubmitRoute)
 
 const port = process.env.PORT
-app.listen(port,()=>{
+app.listen(5001,()=>{
     console.log(`running on port ${port}`)
 })
