@@ -22,6 +22,6 @@ app.use('/api/contest',ContestRoute)
 app.use('/api/submit',SubmitRoute)
 
 const port = process.env.PORT
-app.listen(5001,()=>{
+app.listen(port,()=>{
     console.log(`running on port ${port}`)
 })
