@@ -81,7 +81,7 @@ const submitCode = async (req, res) => {
         attempt.quesAttempt.push(qId);
       }
       attempt.attemptques += 1;
-      attempt.score = (attempt.score || 0) + (question.points || 0);
+      attempt.Total_Score = (attempt.Total_Score || 0) + (question.points || 0);
     }
     console.log(question.points, " points")
     const contest = await Contest.findById(pid);
